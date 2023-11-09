@@ -21,10 +21,18 @@ public class ProductService {
     }
 
     public void saveProduct(Product product) {
+        product.setId(++ID);
         products.add(product);
     }
 
     public void deleteProduct(Long id){
         products.removeIf(product -> product.getId().equals(id));
+    }
+
+    public Product getProductById(Long id) {
+        for (Product product : products){
+            if(product.getId().equals(id)) return product;
+        }
+        return null;
     }
 }
