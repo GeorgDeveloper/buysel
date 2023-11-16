@@ -4,7 +4,7 @@
     <title>BUYSELL</title>
 </head>
 <body>
-<h1>BUYSELL</h1><hr>
+<a href="/"><h1>BUYSELL</h1></a><hr>
 <h4>Регистрация</h4>
 <form action="/registration" method="post">
     Имя пользователя: <input type="text" name="name"><br><br>

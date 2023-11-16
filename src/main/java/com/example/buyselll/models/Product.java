@@ -26,8 +26,6 @@ public class Product {
     private String description;
     @Column(name = "city")
     private String city;
-    @Column(name = "author")
-    private String author;
     @Column(name = "price")
     private int price;
 
@@ -36,6 +34,9 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
     private List<Image> images = new ArrayList<>();
     private Long previewImageId;
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @JoinColumn
+    private User user;
     private LocalDateTime dataOfCreated;
 
 
