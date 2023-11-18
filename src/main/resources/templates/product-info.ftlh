@@ -15,9 +15,8 @@
 <b>Название товара: </b> ${product.title}<br>
 <b>Описание товара: </b> ${product.description}<br>
 <b>Город товара: </b> ${product.city}<br>
-<b>Автор товара: </b> ${product.user.name}<br>
+<b>Автор товара: </b><a href="/user/${product.user.id}"> ${product.user.name}</a><br>
 <b>Цена товара: </b> ${product.price}<br>
-<b>Номер тел: </b> ${product.user.phoneNumber}<br>
 <hr>
 
 
