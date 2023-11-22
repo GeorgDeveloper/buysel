@@ -1,7 +1,7 @@
-package com.example.buyselll.controllers;
+package com.example.buysell.controllers;
 
-import com.example.buyselll.models.Image;
-import com.example.buyselll.repositories.ImageRepository;
+import com.example.buysell.models.Image;
+import com.example.buysell.repositories.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -18,14 +18,12 @@ public class ImageController {
     private final ImageRepository imageRepository;
 
     @GetMapping("/images/{id}")
-    private ResponseEntity<?> getImageById(@PathVariable Long id){
+    private ResponseEntity<?> getImageById(@PathVariable Long id) {
         Image image = imageRepository.findById(id).orElse(null);
-        assert image != null;
         return ResponseEntity.ok()
                 .header("fileName", image.getOriginalFileName())
                 .contentType(MediaType.valueOf(image.getContentType()))
                 .contentLength(image.getSize())
                 .body(new InputStreamResource(new ByteArrayInputStream(image.getBytes())));
     }
-
 }
